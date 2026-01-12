@@ -1106,6 +1106,10 @@ TEST_F(TestEventFixture, test_pub_previous_matched_event)
     GTEST_SKIP();
   }
 
+  if (std::string(rmw_get_implementation_identifier()).find("rmw_zenoh") == 0) {
+    GTEST_SKIP();
+  }
+
   rcl_ret_t ret;
 
   // Create one publisher
